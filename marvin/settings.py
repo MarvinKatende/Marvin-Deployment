@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-r-#^iyzvqgv#xqb7210&x0*87ic9@fj((#&+vv0m%1vng+za3r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.2.37']
 
 
 # Application definition
@@ -73,11 +73,32 @@ WSGI_APPLICATION = 'marvin.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
 DATABASES = {
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+        'NAME': ‘mydepdb’,
+
+        'USER': 'marvin',
+
+        'PASSWORD': '2222',
+
+        'HOST': 'localhost',
+
+        'PORT': '',
+
     }
+
 }
 
 
@@ -114,9 +135,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-
+import os
 STATIC_URL = 'static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
